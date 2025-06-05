@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Booking</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .hotel { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Hotel Booking</h1>
+  <div id="hotels"></div>
+
+  <script>
+  async function loadHotels() {
+    const res = await fetch('/api/hotels');
+    const hotels = await res.json();
+    const container = document.getElementById('hotels');
+    hotels.forEach(h => {
+      const div = document.createElement('div');
+      div.className = 'hotel';
+      div.innerHTML = `<strong>${h.name}</strong> - ${h.location}<br>
+        <input type='text' placeholder='Your name' id='name-${h.id}'>
+        <button onclick='book(${h.id})'>Book</button>`;
+      container.appendChild(div);
+    });
+  }
+
+  async function book(id) {
+    const name = document.getElementById('name-' + id).value;
+    const res = await fetch('/api/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ hotelId: id, name })
+    });
+    const msg = await res.json();
+    alert(msg.message);
+  }
+
+  loadHotels();
+  </script>
+</body>
+</html>
