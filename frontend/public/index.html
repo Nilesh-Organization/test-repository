@@ -14,7 +14,7 @@
 
   <script>
   async function loadHotels() {
-    const res = await fetch('/api/hotels');
+    const res = await fetch('http://localhost:4000/api/hotels');
     const hotels = await res.json();
     const container = document.getElementById('hotels');
     hotels.forEach(h => {
@@ -29,7 +29,7 @@
 
   async function book(id) {
     const name = document.getElementById('name-' + id).value;
-    const res = await fetch('/api/book', {
+    const res = await fetch('http://localhost:4000/api/book', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ hotelId: id, name })

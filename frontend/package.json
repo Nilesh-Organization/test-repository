@@ -1,0 +1,13 @@
+{
+  "name": "hotel-frontend",
+  "version": "1.0.0",
+  "description": "frontend for hotel booking demo",
+  "scripts": {
+    "start": "lite-server --config bs-config.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
