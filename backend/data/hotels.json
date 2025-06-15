@@ -1,4 +1,14 @@
 [
-  { "id": 1, "name": "Seaside Hotel", "location": "Beach City" },
-  { "id": 2, "name": "Mountain Retreat", "location": "Hill Town" }
+  {
+    "id": 1,
+    "name": "Seaside Hotel",
+    "location": "Beach City",
+    "image": "https://placehold.co/600x400?text=Seaside"
+  },
+  {
+    "id": 2,
+    "name": "Mountain Retreat",
+    "location": "Hill Town",
+    "image": "https://placehold.co/600x400?text=Mountain"
+  }
 ]

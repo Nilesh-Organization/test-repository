@@ -1,7 +1,6 @@
 # Hotel Booking Demo
 
-This project is a very small demo of a hotel booking website. It is intentionally simple but has a backend and frontend kept in separate folders so it can grow over time.
-
+This project is a simple demo of a hotel booking website. The backend and frontend live in separate folders so the architecture can grow over time.
 ## Folders
 
 - `backend` – Express API server exposing hotel data and booking endpoints
@@ -25,4 +24,4 @@ npm install
 npm start
 ```
 
-The frontend will be available at [http://localhost:3000](http://localhost:3000) and it will talk to the API running on port 4000. Use the **Load Hotels** button to fetch hotels from the backend and the **Show Bookings** button to view saved bookings.
+The frontend will be available at [http://localhost:3000](http://localhost:3000) and talks to the API on port 4000. Hotels load automatically when the page opens. Use the **Show Bookings** button in the header to view your reservations.

@@ -3,58 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Hotel Booking</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .hotel { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hotel Booking</h1>
-  <button onclick="loadHotels()">Load Hotels</button>
-  <button onclick="loadBookings()">Show Bookings</button>
+  <header>
+    <h1>Book Your Stay</h1>
+    <button onclick="loadBookings()">Show Bookings</button>
+  </header>
   <div id="hotels"></div>
-  <h2>Bookings</h2>
-  <ul id="bookings"></ul>
+  <section id="bookings"></section>
 
-  <script>
-  async function loadHotels() {
-    const res = await fetch('http://localhost:4000/api/hotels');
-    const hotels = await res.json();
-    const container = document.getElementById('hotels');
-    container.innerHTML = '';
-    hotels.forEach(h => {
-      const div = document.createElement('div');
-      div.className = 'hotel';
-      div.innerHTML = `<strong>${h.name}</strong> - ${h.location}<br>
-        <input type='text' placeholder='Your name' id='name-${h.id}'>
-        <button onclick='book(${h.id})'>Book</button>`;
-      container.appendChild(div);
-    });
-  }
-
-  async function loadBookings() {
-    const res = await fetch('http://localhost:4000/api/book');
-    const bookings = await res.json();
-    const list = document.getElementById('bookings');
-    list.innerHTML = '';
-    bookings.forEach(b => {
-      const li = document.createElement('li');
-      li.textContent = `#${b.id} - Hotel ${b.hotelId} reserved for ${b.name}`;
-      list.appendChild(li);
-    });
-  }
-
-  async function book(id) {
-    const name = document.getElementById('name-' + id).value;
-    const res = await fetch('http://localhost:4000/api/book', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ hotelId: id, name })
-    });
-    const msg = await res.json();
-    alert(msg.message);
-  }
-
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
