@@ -1,7 +1,6 @@
 # Hotel Booking Demo
 
 This project is a simple demo of a hotel booking website. The backend and frontend live in separate folders so the architecture can grow over time.
-
 ## Folders
 
 - `backend` – Express API server exposing hotel data and booking endpoints
